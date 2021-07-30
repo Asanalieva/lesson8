@@ -1,3 +1,5 @@
+import datetime
+
 plane = [
     ["*", "*", "*"],  # 0
     ["*", "*", "*"],  # 1
@@ -48,12 +50,16 @@ def main():
         if winner:
             print()
             print(f"Winner is {winner}!!!")
+            time = datetime.datetime.now()
             file = open("results.txt", "a+")  # append a+
-            file.write(f"Winner: {winner}\n")
+            file.write(f"Winner was: {winner} on ({time})")
             file.close()
             return
 
         print_plane(plane)
+# def txt():
+
+
 
 main()
 
