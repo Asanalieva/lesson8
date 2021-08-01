@@ -35,7 +35,7 @@ def check_winner(plane):
 
 
 def main():
-    print_plane(plane)
+
 
     for i in range(9):
         if i % 2 == 0:
@@ -46,21 +46,42 @@ def main():
         player_x = int(input(f"{player}, введити X координату! "))
         player_y = int(input(f"{player}, введити Y координату! "))
         plane[player_x][player_y] = player
+        print_plane(plane) #to see plane everytime
         winner = check_winner(plane)
         if winner:
             print()
             print(f"Winner is {winner}!!!")
+
             time = datetime.datetime.now()
             file = open("results.txt", "a+")  # append a+
-            file.write(f"Winner was: {winner} on ({time})")
+            file.write(f"Winner was: {winner} on ({time})\n")
             file.close()
             return
 
-        print_plane(plane)
-# def txt():
+
+
+def read_from_file():
+    file = open("results.txt")
+    lines = file.readlines()
+    file.close()
+    return lines
 
 
 
-main()
+def txt():
+
+    while True:
+
+        view = int(input("Play (1) or View results (2) "))
+        if view == 2:
+            scores = read_from_file()
+
+            for i in scores:
+                print(i)
+
+        if view == 1:
+            print(print_plane(plane))
 
 
+        main()
+txt()
