@@ -35,7 +35,7 @@ def check_winner(plane):
 
 
 def main():
-
+    print_plane(plane)
 
     for i in range(9):
         if i % 2 == 0:
@@ -72,16 +72,18 @@ def txt():
 
     while True:
 
-        view = int(input("Play (1) or View results (2) "))
-        if view == 2:
+        view = int(input("Play (2) or View results (1) "))
+        if view == 1:
             scores = read_from_file()
 
             for i in scores:
                 print(i)
 
-        if view == 1:
-            print(print_plane(plane))
+        if view == 2:
 
-
-        main()
+            main()
 txt()
+
+
+
+
